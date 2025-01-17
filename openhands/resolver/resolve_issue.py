@@ -35,6 +35,7 @@ from openhands.resolver.resolver_output import ResolverOutput
 from openhands.resolver.utils import (
     Platform,
     codeact_user_response,
+    get_unique_uid,
     identify_token,
     reset_logger_for_multiprocessing,
 )
@@ -184,6 +185,7 @@ async def process_issue(
             runtime_container_image=runtime_container_image,
             enable_auto_lint=False,
             use_host_network=False,
+            user_id=get_unique_uid(),
             # large enough timeout, since some testcases take very long to run
             timeout=300,
         ),
